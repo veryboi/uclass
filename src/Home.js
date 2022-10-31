@@ -26,7 +26,7 @@ const user = {
 }
 const navigation = [
     { name: 'Home', href: '#', current: true },
-    { name: 'Classes', href: '#', current: false },
+    { name: 'My Classes', href: '#', current: false },
     { name: 'Resources', href: '#', current: false },
     { name: 'Company Directory', href: '#', current: false },
     { name: 'Openings', href: '#', current: false },
@@ -37,41 +37,23 @@ const userNavigation = [
     { name: 'Sign out', href: '#' },
 ]
 
-const people = [
+const classes = [
     {
         name: 'Math 32A',
         color: 'bg-red-600',
-        title: 'Regional Paradigm Technician',
-        role: 'Admin',
-        email: 'janecooper@example.com',
-        telephone: '+1-202-555-0170',
         emoji: '🔢',
-        imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
     },
     {
         name: 'CS31',
         color: 'bg-blue-600',
-        title: 'Regional Paradigm Technician',
-        role: 'Admin',
-        email: 'janecooper@example.com',
-        telephone: '+1-202-555-0170',
         emoji: '💻',
-        imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
     },
     {
         name: 'EPS SCI 3',
         color: 'bg-purple-600',
-        title: 'Regional Paradigm Technician',
-        role: 'Admin',
-        email: 'janecooper@example.com',
-        telephone: '+1-202-555-0170',
         emoji: '🦖',
-        imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
     },
-    // More people...
+    //Add classes here
 ]
 
 function classNames(...classes) {
@@ -82,7 +64,7 @@ export default function Home() {
     return (
         <>
             <div className="min-h-full">
-                <Popover as="header" className="bg-red-900 pb-24">
+                <Popover as="header" className="bg-gray-700 pb-24">
                     {({ open }) => (
                         <>
                             <div className="mx-auto max-w-full px-24">
@@ -96,8 +78,27 @@ export default function Home() {
                                             {/*    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300"*/}
                                             {/*    alt="Your Company"*/}
                                             {/*/>*/}
-                                            <p className="text-4xl text-white font-black">UCLASS</p>
+                                            <p className="text-4xl text-yellow-400 font-black">UCLA</p>
+                                            <p className="text-4xl text-blue-400 font-black">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SS</p>
                                         </a>
+                                    </div>
+                                    {/* Nav Bar */}
+                                    <div className="relative flex justify-center" px-10>
+                                        <nav className="flex space-x-4">
+                                            {navigation.map((item) => (
+                                                <a
+                                                    key={item.name}
+                                                    href={item.href}
+                                                    className={classNames(
+                                                        item.current ? 'text-white' : 'text-indigo-100',
+                                                        'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-4 hover:bg-opacity-10'
+                                                    )}
+                                                    aria-current={item.current ? 'page' : undefined}
+                                                >
+                                                    {item.name}
+                                                </a>
+                                            ))}
+                                        </nav>
                                     </div>
 
                                     {/* Right section on desktop */}
@@ -182,21 +183,7 @@ export default function Home() {
                                 <div className="hidden border-t border-white border-opacity-20 py-5 lg:block">
                                     <div className="grid grid-cols-3 items-center gap-8">
                                         <div className="col-span-2">
-                                            <nav className="flex space-x-4">
-                                                {navigation.map((item) => (
-                                                    <a
-                                                        key={item.name}
-                                                        href={item.href}
-                                                        className={classNames(
-                                                            item.current ? 'text-white' : 'text-indigo-100',
-                                                            'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-4 hover:bg-opacity-10'
-                                                        )}
-                                                        aria-current={item.current ? 'page' : undefined}
-                                                    >
-                                                        {item.name}
-                                                    </a>
-                                                ))}
-                                            </nav>
+
                                             <p className="text-4xl font-bold text-white">My Classes</p>
 
 
@@ -350,28 +337,35 @@ export default function Home() {
                                     <div className="overflow-hidden rounded-lg bg-white shadow">
                                         <div className="p-6">
                                             <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 place-content-center">
-                                                {people.map((person) => (
-                                                    <li key={person.email} className="col-span-1 divide-y rounded-2xl shadow-lg overflow-hidden">
-                                                        <div className={`flex w-full items-center justify-between space-x-6 p-3 ${person.color}`}  >
+                                                {classes.map((classes) => (
+                                                    <li className="col-span-1 divide-y rounded-2xl shadow-lg overflow-hidden">
+                                                        <div className={`flex w-full items-center justify-between space-x-6 p-3 ${classes.color}`}  >
                                                             <div className="flex-1 truncate">
                                                                 <div className="flex items-center space-x-3">
-                                                                    <Twemoji emoji={person.emoji} />
-                                                                    <h3 className="truncate text-lg font-bold text-white">{person.name}</h3>
-                                                                    {/*<span className="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">*/}
-                                                                    {/*      {person.role}*/}
-                                                                    {/*    </span>*/}
+                                                                    <Twemoji emoji={classes.emoji} />
+                                                                    <h3 className="truncate text-lg font-bold text-white">{classes.name}</h3>
                                                                 </div>
-                                                                {/*<p className="mt-1 truncate text-sm text-gray-500">{person.title}</p>*/}
                                                             </div>
+                                                            {/* Chat Button */}
                                                             <button><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="white" className="w-6 h-6 block">
                                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
                                                             </svg></button>
 
-                                                            <img className="h-10 w-10 flex-shrink-0 rounded-full bg-gray-300 border-white border-2" src={person.imageUrl} alt="" />
 
                                                         </div>
-                                                        <div className="min-h-200 py-16 bg-gray-100  rounded-b-2xl">
 
+                                                        {/* Box underneath classes */}
+                                                        <div className="px-5 min-h-200 pb-3 bg-gray-100 rounded-b-2xl">
+                                                            <div className="">
+                                                                <li className="w-50 my-5 rounded-xl col-span-1 divide-y p-3 bg-yellow-500 shadow-lg overflow-hidden justify-center">
+
+                                                                    <h3 className="text-center">10 New Messages</h3>
+
+                                                                </li>
+                                                                <li className="w-30 my-5 rounded-xl col-span-1 divide-y p-3 bg-yellow-500 shadow-lg overflow-hidden justify-center">
+                                                                    <h3 className="text-center">5 New Posts</h3>
+                                                                </li>
+                                                            </div>
 
                                                         </div>
 
@@ -398,14 +392,17 @@ export default function Home() {
                         </div>
                     </div>
                 </main>
+
+
                 <footer>
                     <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                         <div className="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left">
-                            <span className="block sm:inline">&copy; 2021 Your Company, Inc.</span>{' '}
+                            <span className="block sm:inline">&copy; 2022, UCLASS.</span>{' '}
                             <span className="block sm:inline">All rights reserved.</span>
                         </div>
                     </div>
                 </footer>
+
             </div>
         </>
     )
