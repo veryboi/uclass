@@ -25,11 +25,9 @@ const user = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'Home', href: '#', current: true },
-    { name: 'My Classes', href: '#', current: false },
-    { name: 'Resources', href: '#', current: false },
-    { name: 'Company Directory', href: '#', current: false },
-    { name: 'Openings', href: '#', current: false },
+    { name: 'My Classes', href: '#', current: true },
+    { name: 'Join a Class', href: '#', current: false },
+    { name: 'Direct Messages', href: '#', current: false },
 ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
@@ -42,16 +40,22 @@ const classes = [
         name: 'Math 32A',
         color: 'bg-red-600',
         emoji: '🔢',
+        newMessages: 5,
+        newPosts: 7,
     },
     {
         name: 'CS31',
         color: 'bg-blue-600',
         emoji: '💻',
+        newMessages: 13,
+        newPosts: 3,
     },
     {
         name: 'EPS SCI 3',
         color: 'bg-purple-600',
         emoji: '🦖',
+        newMessages: 16,
+        newPosts: 69,
     },
     //Add classes here
 ]
@@ -84,14 +88,14 @@ export default function Home() {
                                     </div>
                                     {/* Nav Bar */}
                                     <div className="relative flex justify-center" px-10>
-                                        <nav className="flex space-x-4">
+                                        <nav className="flex space-x-10">
                                             {navigation.map((item) => (
                                                 <a
                                                     key={item.name}
                                                     href={item.href}
                                                     className={classNames(
                                                         item.current ? 'text-white' : 'text-indigo-100',
-                                                        'text-sm font-medium rounded-md bg-white bg-opacity-0 px-3 py-4 hover:bg-opacity-10'
+                                                        'text-md font-large rounded-md bg-white bg-opacity-0 px-3 py-4 hover:bg-opacity-10'
                                                     )}
                                                     aria-current={item.current ? 'page' : undefined}
                                                 >
@@ -334,16 +338,16 @@ export default function Home() {
                             <div className="grid grid-cols-1 gap-4 lg:col-span-4">
                                 <section aria-labelledby="section-1-title">
 
-                                    <div className="overflow-hidden rounded-lg bg-white shadow">
+                                    <div className="overflow-hidden rounded-lg bg-gray-400 shadow">
                                         <div className="p-6">
                                             <ul role="list" className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 place-content-center">
                                                 {classes.map((classes) => (
-                                                    <li className="col-span-1 divide-y rounded-2xl shadow-lg overflow-hidden">
-                                                        <div className={`flex w-full items-center justify-between space-x-6 p-3 ${classes.color}`}  >
+                                                    <li className="col-span-1 divide-y rounded-xl shadow-md overflow-hidden">
+                                                        <div className={`flex w-full items-center justify-between space-x-6 p-3 ${classes.color} brightness-80 opacity-100`}  >
                                                             <div className="flex-1 truncate">
                                                                 <div className="flex items-center space-x-3">
                                                                     <Twemoji emoji={classes.emoji} />
-                                                                    <h3 className="truncate text-lg font-bold text-white">{classes.name}</h3>
+                                                                    <button><h3 className="truncate text-lg font-bold text-white">{classes.name}</h3></button>
                                                                 </div>
                                                             </div>
                                                             {/* Chat Button */}
@@ -355,16 +359,22 @@ export default function Home() {
                                                         </div>
 
                                                         {/* Box underneath classes */}
+
                                                         <div className="px-5 min-h-200 pb-3 bg-gray-100 rounded-b-2xl">
                                                             <div className="">
-                                                                <li className="w-50 my-5 rounded-xl col-span-1 divide-y p-3 bg-yellow-500 shadow-lg overflow-hidden justify-center">
+                                                                <button className="flex justify-center" href="#">
+                                                                    <li className="w-50 mt-4 rounded-xl col-span-1 divide-y py-3 px-14 bg-yellow-500 shadow-lg overflow-hidden justify-center">
+                                                                        <div className="text-center">{classes.newMessages} New Messages</div>
+                                                                    </li>
+                                                                </button>
 
-                                                                    <h3 className="text-center">10 New Messages</h3>
+                                                                <button className="flex justify-center" href="#">
+                                                                    <li className="w-30 mt-4 rounded-xl col-span-1 divide-y py-3 px-14 bg-yellow-500 shadow-lg overflow-hidden justify-center">
+                                                                        <h3 className="text-center">{classes.newPosts} New Posts</h3>
+                                                                    </li>
+                                                                </button>
 
-                                                                </li>
-                                                                <li className="w-30 my-5 rounded-xl col-span-1 divide-y p-3 bg-yellow-500 shadow-lg overflow-hidden justify-center">
-                                                                    <h3 className="text-center">5 New Posts</h3>
-                                                                </li>
+
                                                             </div>
 
                                                         </div>
