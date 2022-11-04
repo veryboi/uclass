@@ -1,15 +1,12 @@
-import logo from './logo.svg';
-import Home from './Home';
+import React from 'react';
 import './App.css';
+import Home from './pages/Home';
 
-function App() {
-  return (
-    <div >
-        <div className="h-screen">
-      <Home/>
+const App = (props) => {
+    return (
+        <div>
+            <Home/>
         </div>
-    </div>
-  );
-}
-
+    );
+};
 export default App;
