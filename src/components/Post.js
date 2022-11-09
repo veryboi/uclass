@@ -31,7 +31,7 @@ export default function Post() {
                     <div className="px-3">
                         <div className="grid grid-rows-2 w-auto p-2 bg-gray-100 rounded-xl">
                             <div className="grid grid-cols-5">
-                                <div className="text-3xl font-bold text-black m-2 w-fit col-span-3">My testicle is in a twist! Any advice? </div>
+                                <div className="text-3xl font-bold text-black m-2 w-fit col-span-3">This is a sample post title! </div>
                                 <div className="flex px-5 pt-3">
                                     <div className="px-5 font-bold">
                                         <div className="badge mr-2 px-6 bg-blue-500 border-gray-100 text-white rounded-lg font-normal">5</div>
@@ -42,21 +42,21 @@ export default function Post() {
                                 </div>
 
                                 <div className="p-1 pt-5 ml-5 bg-yellow-500 font-bold border rounded-lg justify-self-end">
-                                    Math 32A
+                                    Class Name
                                 </div>
                             </div>
                             <div className="items-start">
                                 <div className="badge m-2">
-                                    Health
+                                    Flair 1
                                 </div>
                                 <div className="badge bg-red-500 justify-end">
-                                    Fatty
+                                    Flair 2
                                 </div>
                             </div>
 
                             <div className="px-2" >
                                 <p>
-                                    I was trying to do good in no nut november but I saw Patrick and immediately failed :/. What should I do now? Arul is such an amazing guy for writing this code so well and in an easily maintainable format. He should get an award for this! He is truly one of the best people I've ever met. Patrick is also ok too I guess... I don't know he's been slacking in the gym recently. This is some more filler text because I ran out of ideas to make this box expand: blah blah blah balha ungr reuhnv  ejhnvk veujnvjkbfhrjwbfhr
+                                    This is the post content. It will contain the body of the message in a paragraph preview. This is some filler text to help take up space and demonstrate the flex property of the boxes. As this paragraph expands, the post preview will expand until the max height is reached. The width of the card is automatically determined by the width of its parent element.
                                 </p>
                             </div>
                         </div>
