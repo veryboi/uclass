@@ -3,10 +3,10 @@ import './App.css';
 import Home from './pages/Home';
 
 const App = (props) => {
-    return (
-        <div>
-            <Home/>
-        </div>
-    );
+  return (
+    <div>
+      <Home />
+    </div>
+  );
 };
 export default App;
