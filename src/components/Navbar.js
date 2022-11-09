@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const navigation = [
     { name: 'MATH 32A', color: "text-red-700" },
@@ -9,7 +10,9 @@ const navigation = [
     { name: 'SCAND 20',  color: "text-red-700"},
 ]
 
-export default function Navbar() {
+const tabStyle = 'font-bold text-primary-focus';
+
+export default function Navbar(props) {
     return (
 
         <div className="">
@@ -21,8 +24,8 @@ export default function Navbar() {
                     </a>
                 </li>
                 <div className="divider mx-2 my-0"/>
-                <li className="font-bold text-primary-focus rounded-r-lg">
-                    <a className="rounded-lg">
+                <li className={`${props.focus === "Dashboard" ? tabStyle : ''}`}>
+                    <Link to="/dashboard" className="rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -30,10 +33,10 @@ export default function Navbar() {
                         </svg>
                             Dashboard
 
-                    </a>
+                    </Link>
                 </li>
-                <li>
-                    <a className="group rounded-lg">
+                <li className={`${props.focus === "Search" ? tabStyle : ''}`}>
+                    <Link to="/search" className="group rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" className="" fill="none" viewBox="0 0 24 24" className="w-5 h-5" stroke="currentColor"
                              >
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -41,17 +44,17 @@ export default function Navbar() {
                         </svg>
                         Search
 
-                    </a>
+                    </Link>
                 </li>
-                <li>
-                    <a className="rounded-lg">
+                <li className={`${props.focus === "Messages" ? tabStyle : ''}`}>
+                    <Link to="/messages" className="rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                         </svg>
                         Messages
-                    </a>
+                    </Link>
                 </li>
 
 
